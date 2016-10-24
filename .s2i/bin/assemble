@@ -95,7 +95,7 @@ test_config() {
 }
 
 npm_build() {
-  echo "---> being NPM build process"
+  echo "---> begin NPM build process"
   # run npm install to get dependancies
   cd /tmp/src
   echo "---> start npm install"

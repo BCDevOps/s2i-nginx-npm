@@ -1,11 +1,15 @@
-#!/bin/sh -e
-#
-# S2I save-artifacts script for the 's2i-nginx' image.
-# The save-artifacts script streams a tar archive to standard output.
-# The archive contains the files and folders you want to re-use in the next build.
-#
-# For more information see the documentation:
-#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
-#
-# tar cf - <list of files and folders>
+#!/bin/bash
 
+pushd ${HOME}
+
+echo HOME is ${HOME}
+echo "save-artifacts---> current directory is" `pwd`
+echo "---> Listing stuff that is in the current dir..."
+
+ls -la
+
+if [ -d node_modules ]; then
+    # all deps contents to tar stream
+    tar cf - node_modules
+fi
+popd
