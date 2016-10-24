@@ -123,7 +123,7 @@
       "name": "NGINX_PROXY_URL",
       "displayName": "NGinx Proxy URL",
       "description": "The URL you want NGinx to proxy to, e.g., http://<service-name>:port/",
-      "required": true
+      "required": false
     }
   ]
 }
