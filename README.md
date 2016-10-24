@@ -45,7 +45,7 @@ The directory structure should look like this:
 
 `/dist/    <- where your npm run build should output to`
 
-`/html/    <- your static files here, and the output of the npm build process`
+`/html/    <- your static files here, and the output of the npm build process will overwrite`
 
 `/conf.d/  <- your custom NGinx config files`
 

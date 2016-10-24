@@ -95,12 +95,17 @@ test_config() {
 }
 
 npm_build() {
+  echo "---> being NPM build process"
   # run npm install to get dependancies
-  npm install /tmp/src/
+  cd /tmp/src
+  echo "---> start npm install"
+  npm install
   # run the build process
-  npm run build /tmp/src/
+  echo "---> start npm run build"
+  npm run build
   # copy built software to static folder
-  cp -Rf /tmp/src/dist/* ./html
+  echo "---> coping from build output from ./dist/ to nginx's html folder"
+  cp -Rf ./dist/* /opt/app-root/src/html
 }
 
 cleanup() {
