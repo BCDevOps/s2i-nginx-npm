@@ -94,6 +94,15 @@ test_config() {
     #fi
 }
 
+npm_build() {
+  # run npm install to get dependancies
+  npm install /tmp/src/
+  # run the build process
+  npm run build /tmp/src/
+  # copy built software to static folder
+  cp -Rf /tmp/src/dist/* ./html
+}
+
 cleanup() {
     echo "---> cleanup"
     rm -f /opt/app-root/run/nginx.pid $NGINX_VAR_DIR/log/nginx/error.log
@@ -104,6 +113,6 @@ restore_build_artifacts
 copy_static_files
 copy_server_configs
 copy_aux_dir
-
 test_config
+npm_build
 cleanup
