@@ -2,7 +2,7 @@
     "kind": "Template",
     "apiVersion": "v1",
     "metadata": {
-        "name": "rproxy",
+        "name": "mygovbc-client-webapp",
         "creationTimestamp": null
     },
     "objects": [
