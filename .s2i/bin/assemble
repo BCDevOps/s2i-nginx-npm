@@ -47,7 +47,7 @@ copy_static_files() {
     if [ -d /tmp/src/"${NGINX_STATIC_DIR}" ]; then
         cp -Rf /tmp/src/"${NGINX_STATIC_DIR}"/. ./html
     else
-        cp -Rf /tmp/src/. ./html
+        mkdir ./html
     fi
 }
 
@@ -96,7 +96,7 @@ test_config() {
 
 npm_build() {
   echo "---> begin NPM build process"
-  # run npm install to get dependancies
+  # run npm install to get dependencies
   cd /tmp/src
   echo "---> start npm install"
   npm install
@@ -105,7 +105,7 @@ npm_build() {
   npm run build
   # copy built software to static folder
   echo "---> coping from build output from ./dist/ to nginx's html folder"
-  cp -Rf ./dist/* /opt/app-root/src/html
+  cp -Rf /tmp/src/dist/* /opt/app-root/src/html
 }
 
 cleanup() {
