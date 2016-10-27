@@ -96,6 +96,10 @@ test_config() {
 
 npm_build() {
   echo "---> begin NPM build process"
+  echo "---> npm version: "
+  npm --version
+  echo "---> node version: "
+  node --version
   # run npm install to get dependencies
   cd /tmp/src
   echo "---> start npm install"
@@ -103,8 +107,11 @@ npm_build() {
   # run the build process
   echo "---> start npm run build"
   npm run build
+
   # copy built software to static folder
-  echo "---> coping from build output from ./dist/ to nginx's html folder"
+  echo "---> coping from build output: "
+  ls -al /opt/app-root/src/html
+  echo "---> to /opt/app-root/src/html (nginx home directory): "
   cp -Rf /tmp/src/dist/* /opt/app-root/src/html
 }
 
